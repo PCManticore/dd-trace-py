@@ -26,7 +26,8 @@ def patch():
     _w('tornado.web', 'RequestHandler.log_exception', handlers.log_exception)
 
     # patch Tornado concurrent modules
-    _w('tornado.concurrent', 'run_on_executor', decorators._run_on_executor)
+    # TODO: disabled in favor of compat.futures integration
+    # _w('tornado.concurrent', 'run_on_executor', decorators._run_on_executor)
 
     # patch Template system
     _w('tornado.template', 'Template.generate', template.generate)
